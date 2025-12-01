@@ -22,12 +22,16 @@ navlinks.forEach(link => {
 
 const menuicon = document.querySelector('#menu-icon')
 const navbar = document.querySelector('header nav')
+const menulinks = navbar.querySelectorAll('a')
 
 menuicon.addEventListener('click', () => {
     navbar.classList.toggle('active')
-    menuicon.classList.toggle('bx-x')
+})
 
- 
+navlinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('active')
+    })
 })
 
 
