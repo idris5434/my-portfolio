@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 const navlinks = document.querySelectorAll('header nav a')
 
 const activepage = () => {
@@ -34,7 +32,49 @@ navlinks.forEach(link => {
     })
 })
 
+const form = document.getElementById('form');
+const submitBtn = form.querySelector('button[type="submit"]');  
 
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the default page reloa    
+
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object)    
+    submitBtn.innerHTML = "Please wait..."    
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: json
+    })
+    .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+            submitBtn.innerHTML = "Success! Message sent.";
+            submitBtn.style.color = "green";
+            form.reset(); // Clear the form
+        } else {
+            console.log(response);
+            submitBtn.innerHTML = json.message || "Something went wrong!";
+            submitBtn.style.color = "red";
+        }
+    })
+    .catch(error => {
+        console.log(error);
+        result.innerHTML = "Something went wrong!";
+        result.style.color = "red";
+    })
+    .then(function() {
+        // Hide the message after 5 seconds (optional)
+        setTimeout(() => {
+            result.style.display = "none";
+        }, 5000);
+    });
+});
 
 
 
@@ -50,11 +90,7 @@ navlinks.forEach(link => {
         document.body.classList.add("loaded");
     });
 
-    const addEventOnElements = function(elements, eventType, callback) {
-        for(let i = 0, len = elements.length; i < len; i++){
-            elements[i].addEventListener(eventType, callback);
-        }
-    };
+   
 
     
     document.querySelectorAll('.input-box').forEach(input => {

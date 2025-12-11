@@ -9,11 +9,7 @@
 html,body { height: 100%; }
 
 html{
-    font-size: 62.5%;
-}
-
-body{
-    color: var(#fff);
+    font-size: 66%;
 }
 
 :root{
@@ -24,22 +20,15 @@ body{
 }
 
 body {
-  font-family: 'Inter', system-ui, Arial, sans-serif;
-  background: #071412; /* احتفظ بلونك الداكن */
-  color: #e6e6e6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.45;
-  overflow-X: hidden;
+    font-family: 'Inter', system-ui, Arial, sans-serif;
+    background: #071412; /* احتفظ بلونك الداكن */
+    color: #e6e6e6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.45;
+    overflow-X: hidden;
+
 }
-
-body.loaded{ overflow: overlay; overflow-X: hidden;}
-
-::-webkit-scrollbar{ width: 5px;}
-
-::-webkit-scrollbar-track{ background-color: transparent;}
-
-::-webkit-scrollbar-thumb{ background-color: #07fe03;} 
 
 /* Perload*/
 .preload{
@@ -70,7 +59,7 @@ body.loaded{ overflow: overlay; overflow-X: hidden;}
     height: 112px;
     border-radius: 50%;
     border: 3px solid var(--white);
-    border-block-start-color: hsla(0, 3%, 7%, 1);
+    border-block-start-color: rgb(39, 39, 39);
     margin-block-end: 45px;
     animation: rotate360 1s linear infinite;
 }
@@ -79,20 +68,20 @@ body.loaded{ overflow: overlay; overflow-X: hidden;}
     0%{transform: rotate(0);}
     0%{transform: rotate(1turn);}
 }
-.contact-number
+
 .preload .text{
     background-image: linear-gradient(90deg, transparent ex 16.66%, var(--smoky-black-3) 33.33% 50%,);
     background-size: 500%;
-    font-size: calc(2rem + 3vw);
+    font-size: calc(1rem + 2vw);
     font-weight: 700;
     line-height: 1em;
-    letter-spacing: 16px;
+    letter-spacing: 11px;
     text-transform: uppercase;
     padding-inline-start: 16px;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-stroke: .5px hsla(0, 0%, 13%, 1);
+    -webkit-text-stroke: .5px rgb(255, 255, 255);
     animation: loadingtext 2s linear infinite;
 }
 
@@ -743,17 +732,18 @@ hr{
 
 .contact-box h2{
     font-size: 4.5rem;
+    text-transform: capitalize;
 }
 
 .contact-box p{
     font-size: 1.6rem;
     line-height: 1.6;
-    text-transform: capitalize;
 }
 
 .contact-box .desc{
     margin: 1.5rem 0 2.5rem;
     font-size: 1.4rem;
+    text-transform: capitalize;
 }
 
 .contact-box .contact-detail{
@@ -885,6 +875,10 @@ hr{
         margin-top: 100px;
         display: none;
     }
+
+    html{
+        font-size: 65%;
+    }
     
     .about{
         display: flex;
@@ -915,7 +909,7 @@ hr{
         position: fixed;
         top: 0;
         left: 0;
-        height: 100vh;
+        height: 110vh;
         width: 250px;
         padding: 80px;
         background: #1b1b1b;
@@ -939,19 +933,22 @@ hr{
         transform: translateX(0);
     }
     
+    .contact-box .desc{
+        max-width: 90%;
+    }
 
     .contact-box form{
         padding: 5px;
         padding-top: 20px;
         padding-bottom: 20px;
         padding: 30px;
+        max-width: 90%;
     }
-
-    .contact-box .desc{
-        width: 500px;
-    }
-
     .contact-container{
             grid-template-columns: 1fr;
+    }
+
+    .skill-box .skills-info i{
+        margin-top: 2.5px;
     }
 }
